@@ -1,5 +1,12 @@
 {% extends "main.html" %}
 {% block content %}
-
-
+		<br><br>Hello {% Users.username %},<br><br>
+        {% for post in newpost %}
+        <div class="card" style="width: 18rem;height:15rem;">
+          <img src={{"post.photo"}} class="card-img-top" alt="...">
+          <div class="card-body">
+            <p class="card-text">{{ post.caption }}</p>
+          </div>
+		</div>   <br><br><br><br><br><br>
+        {% endfor %}
 {% endblock %}
