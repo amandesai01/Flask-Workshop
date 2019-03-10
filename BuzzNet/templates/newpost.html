@@ -1,0 +1,12 @@
+{% extends "main.html" %}
+{% block content %}
+      <h3>Share with your BuzzNet community!</h3>
+      <hr/>
+      <form action = "{{ request.path }}" method = "post">
+         <label for = "caption">Caption</label><br>
+         <input type = "text" name = "caption" placeholder = "Caption" /><br>
+         <label for = "photo">Photo</label><br>
+         <input type = "text" name = "photo" placeholder = "Photo" /><br>
+         <input type = "submit" value = "Submit" />
+      </form>
+{% endblock %}
