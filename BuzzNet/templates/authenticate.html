@@ -17,24 +17,43 @@
 		    <h3> Log in</h3>
 		    <p>
 					<div class="contain">
+						 <form method="POST" action="">
+
 	 {{ login_form.hidden_tag() }}
 	 <label for="uname"><b>E-mail</b></label><br>
-	 {{ login_form.email(class="in")}}<br>
+	 {{ login_form.emaill(class="in")}}<br>
 	 <label for="psw"><b>Password</b></label><br>
-	 {{ login_form.password(class="in")}}
+	 {{ login_form.passwordl(class="in")}}
 	 <br><br>
-	 {{login_form.submit(class="SubmitButton")}}
+	 {{login_form.submitl(class="SubmitButton")}}
   </div>
-
+</form>
 				</p>
 		  </div>
 		  <div id="signup" class="tab-pane fade">
-		    <h3>Menu 1</h3>
-		    <p>Some content in menu 1.</p>
+		    <h3>Sign Up</h3>
+		    <p> <form method="POST" action="">
+
+					{{ signup_form.hidden_tag() }}
+      <label for="uname"><b>Username</b></label><br>
+      {{ signup_form.usernames(class="in")}}<br>
+      <label for="uname"><b>E-mail</b></label><br>
+      {{ signup_form.emails(class="in")}}<br>
+      <label for="psw"><b>Password</b></label><br>
+      {{ signup_form.passwords(class="in")}}<br>
+  	<label for="psw"><b>Confirm Password</b></label><br>
+      {{ signup_form.confirm_passwords(class="in")}}
+      <br><br>
+
+        {{signup_form.submits(class="SubmitButton")}}
+</form>
+				</p>
 		  </div>
 		  <div id="about" class="tab-pane fade">
-		    <h3>Menu 2</h3>
-		    <p>Some content in menu 2.</p>
+		    <h3>About Us</h3>
+		    <p>
+					How bout dat?
+				</p>
 		  </div>
 		</div>
 {% endblock %}
