@@ -2,6 +2,7 @@ from flask import Flask, render_template, redirect, url_for, request, flash
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager,UserMixin,login_user, current_user, login_required, logout_user
 import forms.login as loginForm
+import forms.registration as signup
 app = Flask(__name__)
 db = SQLAlchemy(app)
 
@@ -52,6 +53,7 @@ def login():
     {"name":"New Post","selected":False,"link":url_for("newPost")}
     ]
     login_form = loginForm.LoginForm()
+    signup_form = signup.RegistrationForm(prefix="signup_form")
     if login_form.validate_on_submit():
         if User.query.filter_by(email=login_form.email.data).first():
             if hashlib.sha512(bytes(login_form.password.data + app.config['PSK_HASH_KEY'],'utf8')).hexdigest() == User.query.filter_by(email=login_form.email.data).first().password:
@@ -60,7 +62,7 @@ def login():
             else:
                 flash('Incorrect Credentials')
                 return redirect(url_for(login))
-    return render_template("authenticate.html",title="Login",nav_options= options,login_form = login_form)
+    return render_template("authenticate.html",title="Login",nav_options= options,login_form = login_form,signup_form = signup_form)
 @app.route("/friends/")
 def getFriends():
     options = [
