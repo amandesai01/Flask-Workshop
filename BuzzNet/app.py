@@ -80,7 +80,7 @@ def getProfile():
     {"name":"My Network","selected":False,"link":url_for("getFriends")},
     {"name":"New Post","selected":False,"link":url_for("newPost")}
     ]
-    return render_template("profile.html",title="Profile",nav_options= options)
+    return render_template("profile.html",title="Profile",nav_options= options, newpost=NewPost.query.all())
 @app.route("/post/new/",methods = ['GET','POST'])
 def newPost():
     options = [
